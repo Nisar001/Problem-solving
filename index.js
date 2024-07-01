@@ -29,7 +29,7 @@ app.post('/api/throttle', (req, res) => {
    const { funcBody, wait} = req.body;
    const func = new Function('return ' + funcBody)();
    throttledFunc = throttle(func, wait);
-   res.send('Finction Thrttle Successfully');
+   res.send('Function Throttle Successfully');
 })
 
 app.post('/api/throttleCall', (req, res) => {
@@ -37,7 +37,7 @@ app.post('/api/throttleCall', (req, res) => {
       const result = throttledFunc(...req.body.args);
       res.json(result)
    } else{
-      res.send("No throttked function set, Please set it first using apo/throttle")
+      res.send("No throttled function set, Please set it first using apo/throttle")
    }
 })
 
